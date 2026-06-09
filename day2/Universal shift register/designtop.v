@@ -1,50 +1,52 @@
 `timescale 1ns / 1ps
-
 module usr (
-    input clk,                  
-    input rst,                  
-    input [1:0] mode,           
-    input serial_in,            
-    input [3:0] parallel_in,    
-    output reg serial_out,      
-    output reg [3:0] parallel_out 
+    input  wire        clk,
+    input  wire        rst,
+    input  wire        sin,
+    input  wire        load,
+    input  wire [1:0]  mod,
+    input  wire [3:0]  pin,
+    output wire        sout,
+    output reg  [3:0]  pout
 );
 
-    
-    reg [3:0] shift_reg;
+    reg [3:0] sreg;
 
-    always @(posedge clk or posedge rst) begin
+    assign sout = sreg[3];
+
+    always @(posedge clk) begin
         if (rst) begin
-            shift_reg    <= 4'b0000;
-            serial_out   <= 1'b0;
-            parallel_out <= 4'b0000;
-        end
-        else begin
-            case (mode)
-                
-                2'b00: begin
-                    shift_reg  <= {shift_reg[2:0], serial_in}; 
-                    serial_out <= shift_reg[3];               
+            sreg <= 4'b0000;
+            pout <= 4'b0000;
+        end else begin
+            case (mod)
+                2'b00 : begin
+                    sreg <= {sreg[2:0], sin};
+                    pout <= 4'b0000;
                 end
 
-                
-                2'b01: begin
-                    shift_reg    <= {shift_reg[2:0], serial_in}; 
-                    parallel_out <= {shift_reg[2:0], serial_in}; 
+                2'b01 : begin
+                    sreg <= {sreg[2:0], sin};
+                    pout <= {sreg[2:0], sin};
                 end
 
+                2'b10 : begin
+                    if (load)
+                        sreg <= pin;
+                    else
+                        sreg <= {sreg[2:0], 1'b0};
+                    pout <= 4'b0000;
+                end
 
-                2'b10: begin
-                    serial_out <= shift_reg[3];               
-                    shift_reg  <= {shift_reg[2:0], 1'b0};    
+                2'b11 : begin
+                    if (load)
+                        sreg <= pin;
+                    pout <= sreg;
                 end
-                2'b11: begin
-                    shift_reg    <= parallel_in; 
-                    parallel_out <= parallel_in; 
-                end
-                
-                default: begin
-                    shift_reg    <= shift_reg;
+
+                default : begin
+                    sreg <= sreg;
+                    pout <= pout;
                 end
             endcase
         end
