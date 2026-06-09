@@ -7,7 +7,7 @@ Student name:Lakshmipriya K G
 Academic Department:Electronic engineering(VLSI design and technology)
 Instituion:Saintgits College Of Engineering
 Internship Timeline:15 days(Commenced June 08,2026)
-Core Development Stack:Verilog HDL,Vivado Design suite
+Core Development Stack:Verilog HDL,Vivado Design suite.
 
 
 
