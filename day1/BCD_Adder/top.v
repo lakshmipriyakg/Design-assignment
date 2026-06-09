@@ -1,4 +1,4 @@
-
+`timescale 1ns / 1ps
 module bcd(input [3:0]A,[3:0]B,input cin,output [3:0]S,output cout);
 wire w1,w2,w3,w4;
 wire [3:0]sum1;
