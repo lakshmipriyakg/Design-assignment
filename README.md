@@ -4,6 +4,7 @@
 ​Purpose: This repository serves as a centralized documentation hub for the Verilog HDL modules, functional testbenches, and hardware simulation reports developed throughout the course of the 15-day intensive summer internship program.
 
 GENERAL PROFILE
+
 Student name:Lakshmipriya K G
 Academic Department:Electronic engineering(VLSI design and technology)
 Instituion:Saintgits College Of Engineering
