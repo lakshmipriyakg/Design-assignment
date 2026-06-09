@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module universal_shift_register (
+module usr (
     input clk,                  
     input rst,                  
     input [1:0] mode,           
