@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module tb_universal_shift_register;
+module usr_tb;
 
     
     reg clk;
@@ -14,7 +14,7 @@ module tb_universal_shift_register;
     wire [3:0] parallel_out;
 
     
-    universal_shift_register uut (
+         usr uut (
         .clk(clk), 
         .rst(rst), 
         .mode(mode), 
@@ -82,7 +82,7 @@ module tb_universal_shift_register;
 
         
         $display("\n--- Simulation Finished ---");
-        $finish;
+        
     end
       
 endmodule
