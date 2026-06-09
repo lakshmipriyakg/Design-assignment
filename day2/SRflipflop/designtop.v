@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-module sr_ff(input s,r,rst,en,clk,output reg q,qbar);
+module srff1(input s,r,rst,en,clk,output reg q,qbar);
 always@(posedge clk)
 begin
 if(en)begin
