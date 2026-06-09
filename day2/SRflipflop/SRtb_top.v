@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
-module sr_ff_tb();
+module srff1_tb();
 reg s_tb, r_tb, rst_tb, en_tb, clk_tb;
 wire q_tb, qbar_tb;
 
-sr_ff dut(.s(s_tb),.r(r_tb),.rst(rst_tb),.en(en_tb),.clk(clk_tb),.q(q_tb),.qbar(qbar_tb));
+srff1 dut(.s(s_tb),.r(r_tb),.rst(rst_tb),.en(en_tb),.clk(clk_tb),.q(q_tb),.qbar(qbar_tb));
 
 always #5 clk_tb = ~clk_tb;
 initial 
