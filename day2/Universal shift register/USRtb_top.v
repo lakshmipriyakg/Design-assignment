@@ -2,87 +2,102 @@
 
 module usr_tb;
 
-    
-    reg clk;
-    reg rst;
-    reg [1:0] mode;
-    reg serial_in;
-    reg [3:0] parallel_in;
+    reg        clk;
+    reg        rst;
+    reg        sin;
+    reg        load;
+    reg  [1:0] mod;
+    reg  [3:0] pin;
+    wire       sout;
+    wire [3:0] pout;
 
-    
-    wire serial_out;
-    wire [3:0] parallel_out;
-
-    
-         usr uut (
-        .clk(clk), 
-        .rst(rst), 
-        .mode(mode), 
-        .serial_in(serial_in), 
-        .parallel_in(parallel_in), 
-        .serial_out(serial_out), 
-        .parallel_out(parallel_out)
+    usr uut (
+        .clk  (clk),
+        .rst  (rst),
+        .sin  (sin),
+        .load (load),
+        .mod  (mod),
+        .pin  (pin),
+        .sout (sout),
+        .pout (pout)
     );
+
+    initial clk = 0;
     always #5 clk = ~clk;
 
+    task apply_clk;
+        input [63:0] cycle_num;
+        begin
+            @(posedge clk); #1;
+            $display("Cycle %0d | mod=%b load=%b sin=%b pin=%b | sout=%b pout=%b",
+                      cycle_num, mod, load, sin, pin, sout, pout);
+        end
+    endtask
+
+    integer i;
+
     initial begin
-        
-        clk = 0;
-        rst = 1;
-        mode = 2'b00;
-        serial_in = 0;
-        parallel_in = 4'b0000;
-
-        
-        $monitor("Time=%0dns | Reset=%b | Mode=%b | SerialIn=%b | ParallelIn=%b | SerialOut=%b | ParallelOut=%b", 
-                 $time, rst, mode, serial_in, parallel_in, serial_out, parallel_out);
-
-        
-        #15;
+        rst = 1; sin = 0; load = 0; mod = 2'b00; pin = 4'b0000;
+        @(posedge clk); #1;
         rst = 0;
-        #5;
 
-        
-        $display("\n--- Testing PIPO Mode (11) ---");
-        mode = 2'b11;
-        parallel_in = 4'b1011; 
-        #10;
-        
-        parallel_in = 4'b0101; 
-        #10;
+        $display("\n--- TEST 1: SISO (mod=00) ---");
+        mod  = 2'b00;
+        load = 0;
+        sin = 1; apply_clk(1);
+        sin = 0; apply_clk(2);
+        sin = 1; apply_clk(3);
+        sin = 1; apply_clk(4);
+        sin = 0;
+        apply_clk(5);
+        apply_clk(6);
+        apply_clk(7);
+        apply_clk(8);
 
-        
-        $display("\n--- Testing PISO Mode (10) ---");
-      
-        mode = 2'b10; 
-        #10; 
-        #10; 
-        #10;
-        #10; 
-        $display("\n--- Testing SISO Mode (00) ---");
-        mode = 2'b00;
-        
-        serial_in = 1; #10; 
-        serial_in = 1; #10; 
-        serial_in = 0; #10; 
-        serial_in = 1; #10; 
-        
-       
-        serial_in = 0; #10; 
-        serial_in = 0; #10;
-        serial_in = 0; #10;
-        serial_in = 0; #10;
-        $display("\n--- Testing SIPO Mode (01) ---");
-        mode = 2'b01;
-        
-        serial_in = 1; #10; 
-        serial_in = 0; #10;
-        serial_in = 1; #10;
-        serial_in = 0; #10; 
+        $display("\n--- TEST 2: SIPO (mod=01) ---");
+        rst = 1; @(posedge clk); #1; rst = 0;
+        mod  = 2'b01;
+        load = 0;
+        sin = 1; apply_clk(1);
+        sin = 0; apply_clk(2);
+        sin = 1; apply_clk(3);
+        sin = 0; apply_clk(4);
 
-        
-        $display("\n--- Simulation Finished ---");
-        
+        $display("\n--- TEST 3: PISO (mod=10) ---");
+        rst = 1; @(posedge clk); #1; rst = 0;
+        mod  = 2'b10;
+        pin  = 4'b1101;
+        load = 1; apply_clk(1);
+        load = 0;
+        sin  = 0;
+        for (i = 2; i <= 5; i = i + 1)
+            apply_clk(i);
+
+        $display("\n--- TEST 4: PIPO (mod=11) ---");
+        rst = 1; @(posedge clk); #1; rst = 0;
+        mod  = 2'b11;
+        pin  = 4'b1010;
+        load = 1; apply_clk(1);
+        pin  = 4'b0101;
+        apply_clk(2);
+        load = 0;
+        apply_clk(3);
+
+        $display("\n--- TEST 5: Synchronous Reset ---");
+        mod  = 2'b01;
+        sin  = 1;
+        apply_clk(1);
+        apply_clk(2);
+        rst = 1; apply_clk(3);
+        rst = 0;
+
+        $display("\n--- Simulation complete ---");
+    
     end
-      
+
+    initial begin
+        $dumpfile("usr_tb.vcd");
+        $dumpvars(0, usr_tb);
+    end
+
 endmodule
