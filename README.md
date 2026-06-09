@@ -1,4 +1,4 @@
-**Summer Research & Design Internship 2026**
+**Summer Research & Design Internship 2026**/
 ​Hosted by TKM College of Engineering (TKMCE)
 ​Purpose: This repository serves as a centralized documentation hub for the Verilog HDL modules, functional testbenches, and hardware simulation reports developed throughout the course of the 15-day intensive summer internship program.
 
@@ -22,8 +22,7 @@ Core Development Stack:Verilog HDL,Vivado Design suite
 
 
 
-
-        Engineering Tools & Ecosystem
+** Engineering Tools & Ecosystem**
 ​Hardware Description: Verilog HDL (IEEE 1364 Standard)
 ​Synthesis & Simulation Engine: Xilinx Vivado Design Suite
 ​Version Control Architecture: Git & GitHub Platform Infrastructure
