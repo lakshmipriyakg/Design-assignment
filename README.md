@@ -9,17 +9,7 @@ Instituion:Saintgits College Of Engineering
 Internship Timeline:15 days(Commenced June 08,2026)
 Core Development Stack:Verilog HDL,Vivado Design suite
 
-TKM_INTERNSHIP/
-├── README.md
-└── Day1/
-    ├── Ripple_Carry_Adder/
-    │   ├── Design/
-    │   ├── Testbench/
-    │   └── rca.md
-    └── BCD_Counter/
-        ├── Design/
-        ├── Testbench/
-        └── bcd.md
+
 
 
 
