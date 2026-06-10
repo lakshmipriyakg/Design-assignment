@@ -21,7 +21,7 @@ Welcome to the official repository for the **Summer Internship 2026**, hosted by
 | Parameter | Details |
 | :--- | :--- |
 | **Name** | Lakshmipriya K G |
-| **Department** | Electronics and Communication Engineering (ECE) |
+| **Department** | Electronics Engineering(VLSI Design and Technology) |
 | **Institution** | Saintgits College of engineering |
 | **Internship Venue** | TKM College of Engineering (TKMCE) |
 
@@ -68,6 +68,17 @@ TKM_INTERNSHIP/
  * **Binary Coded Decimal (BCD) Counter**
    * Engineered a synchronous decade counter sequencing through valid BCD states (0000 to 1001).
    * Integrated reset logic and terminal-count boundary checks.
+### **Day2
+* **SR Flipflop**
+
+* **Encoder4_2**
+
+
+* **D Flipflop**
+
+* **Universal shift register**
+
+
 ## 🎯 Purpose & Repository Objectives
 The core objective of this codebase is to preserve a highly organized, step-by-step log of RTL (Register-Transfer Level) designs and physical verification procedures executed throughout the 15-day internship cycle. Every laboratory task is benchmarked using functional simulations to guarantee design accuracy and timing performance.
 ```
