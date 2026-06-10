@@ -8,18 +8,8 @@
    * Integrated reset logic and terminal-count boundary checks.
 ## 🎯 Purpose & Repository Objectives
 The core objective of this codebase is to preserve a highly organized, step-by-step log of RTL (Register-Transfer Level) designs and physical verification procedures executed throughout the 15-day internship cycle. Every laboratory task is benchmarked using functional simulations to guarantee design accuracy and timing performance.
-"""
-# Save to a markdown file
-with open("README.md", "w", encoding="utf-8") as f:
-f.write(readme_content)
-print("README.md file successfully generated.")
-```
-Your Markdown file is ready
-[file-tag: code-generated-file-0-1781103853514733017]
 
-Here is the clean, uncopied, and modernized markdown source code that preserves all your structural data while introducing a professional engineering-repository format (using markdown tables, emojis, clean lists, and distinct logic sections):
 
-```markdown
 # 🚀 Summer Internship 2026 | TKM College of Engineering
 
 Welcome to the official repository for the **Summer Internship 2026**, hosted by **TKM College of Engineering (TKMCE)**. This repository serves as a structured documentation hub and code registry for all Verilog HDL modules, functional testbenches, and hardware simulations engineered during the program.
@@ -67,7 +57,7 @@ TKM_INTERNSHIP/
         ├── Design/      # Structural/Behavioral Verilog Logic
         ├── Testbench/   # Test Patterns & Waveform Verification
         └── bcd.md       # Module Specification & Logic Breakdown
-print("README.md file succesfully generated")
+
 
 ```
 ## 🛠️ Log of Completed Experiments
