@@ -14,24 +14,6 @@ The design consists of three primary hardware blocks coordinated under a structu
 2. **`fifo` (Intermediate Buffer Module):** An 8x8 bit synchronous FIFO queue that temporarily buffers bursts of high-speed data to prevent loss. It manages internal write/read pointers and maintains status tracking via `full` and `empty` hardware flags.
 3. **`mach_out` (Slow Machine Destination Module):** An FSM-driven module representing a slow output peripheral. It restricts data intake to once every **three clock cycles**, safely popping elements from the FIFO using a synchronized read-enable handshake.
 
-### Hardware Block Diagram
-
-
-```
-+-------------------------------------------------------------+
-|                         TOP_SYSTEM                          |
-|                                                             |
-+----> |  +------------+   data    +----------+   data   +------------+  |
-s_in   |  |  face_mod  | --------> |   fifo   | -------> |  mach_out  |  | ----> d_out
-|  |   (Fast)   |  wr_enb   |  (8x8)   |  rd_enb  |   (Slow)   |  |
-+----> |  +------------+ --------> +----------+ <------- +------------+  |
-clk/rst|        |                       |                      |     |
-+--------+-----------------------+----------------------+-----+
-|                       |                      |
-+-----------------------+----------------------+-----> Global Clock / Reset
-```
-
----
 
 ## Finite State Machine (FSM) Specification
 
@@ -52,4 +34,8 @@ The design was simulated using **Vivado Behavioral Simulator**, matching the fun
 2. **Rate Matching Transformation:** The slow output signal `d_out[7:0]` updates its data state precisely **every 3 clock cycles** as defined by the FSM pipeline stage layout.
 3. **Data Integrity Holding:** `d_out` accurately preserves and reflects the sequence of entries pushed into the intermediate memory layout (`a1` -> `b2` -> `c3`), confirming that data order is correctly maintained.
 4. **FIFO Buffer Boundary:** The `empty` flag smoothly drops to low (`0`) once data loading clears execution startup. As the fast input producer continuously outpaces the 3-cycle slow consumer, the `full` flag correctly flags a high (`1`) state when the depth limit reaches 8 bytes, preventing buffer overwrites.
+
+
+   <img width="1603" height="878" alt="image" src="https://github.com/user-attachments/assets/3c72d2e9-eab3-4661-94be-87df5a14ab7a" />
+
 
