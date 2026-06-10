@@ -67,6 +67,7 @@ TKM_INTERNSHIP/
         ├── Design/      # Structural/Behavioral Verilog Logic
         ├── Testbench/   # Test Patterns & Waveform Verification
         └── bcd.md       # Module Specification & Logic Breakdown
+print("README.md file succesfully generated")
 
 ```
 ## 🛠️ Log of Completed Experiments
