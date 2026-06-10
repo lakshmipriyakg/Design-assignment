@@ -1,6 +1,7 @@
 ### **Simulation result**
 <img width="1562" height="781" alt="Screenshot 2026-06-10 113830" src="https://github.com/user-attachments/assets/7c7c85c7-74ae-4f27-9bf2-6f2cc03ee6d0" />
-* **Overlapping 1110 Sequence Detector**
+
+## Overlapping 1110 Sequence Detector
 
 This repository contains the Verilog implementation and testbench simulation for a **Finite State Machine (FSM)** based sequence detector designed to detect the binary sequence `1110`.
 
@@ -34,4 +35,4 @@ The simulation waveform captures the behavior of the testbench inputs and detect
 1. **Reset Phase (0ns - 10ns):** `rst_tb` is held high to clear any random states and establish a clean baseline. The detector output `det_tb` remains low.
 2. **Data Shifting:** As `rst_tb` drops low, serial data bits are fed into `din_tb` on successive clock cycles.
 3. **Sequence Match:** Once the state machine tracks three consecutive high cycles on `din_tb` followed by a low cycle, the internal state transitions to the match state, pulling `det_tb` high to indicate a successful detection.
-4.
+  
