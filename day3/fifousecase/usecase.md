@@ -39,6 +39,8 @@ The design was simulated using **Vivado Behavioral Simulator**, matching the fun
    <img width="1603" height="878" alt="image" src="https://github.com/user-attachments/assets/3c72d2e9-eab3-4661-94be-87df5a14ab7a" />
 
    <img width="1408" height="891" alt="image" src="https://github.com/user-attachments/assets/7e448ce3-6398-4483-86c7-aa812486cf4f" />
+   <img width="1552" height="788" alt="image" src="https://github.com/user-attachments/assets/36c587e0-7b19-48e6-a819-76e4deaa01e0" />
+
 
 
 
