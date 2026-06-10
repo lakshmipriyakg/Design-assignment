@@ -1,5 +1,5 @@
 **SIMULATION RESULT**
 <img width="1117" height="586" alt="image" src="https://github.com/user-attachments/assets/549ba7d1-6106-4873-83fa-ce2ad0f62881" />
 
-**EXPLANATION**
+|**EXPLANATION**|
 A structure of multiple full adders is cascaded in a manner to gives the results of the addition of an n bit binary sequence. This adder includes cascaded full adders in its structure so, the carry will be generated at every full adder stage in a ripple-carry adder circuit. These carry output at each full adder stage is forwarded to its next full adder and there applied as a carry input to it. This process continues up to its last full adder stage. So, each carry output bit is rippled to the next stage of a full adder.
