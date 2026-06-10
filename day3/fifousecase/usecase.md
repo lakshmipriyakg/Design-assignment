@@ -35,11 +35,9 @@ The design was simulated using **Vivado Behavioral Simulator**, matching the fun
 3. **Data Integrity Holding:** `d_out` accurately preserves and reflects the sequence of entries pushed into the intermediate memory layout (`a1` -> `b2` -> `c3`), confirming that data order is correctly maintained.
 4. **FIFO Buffer Boundary:** The `empty` flag smoothly drops to low (`0`) once data loading clears execution startup. As the fast input producer continuously outpaces the 3-cycle slow consumer, the `full` flag correctly flags a high (`1`) state when the depth limit reaches 8 bytes, preventing buffer overwrites.
 
+ <img width="1552" height="788" alt="image" src="https://github.com/user-attachments/assets/36c587e0-7b19-48e6-a819-76e4deaa01e0" />
+ <img width="1546" height="838" alt="image" src="https://github.com/user-attachments/assets/9669145a-558f-4b6d-97c0-55be178c563d" />
 
-   <img width="1603" height="878" alt="image" src="https://github.com/user-attachments/assets/3c72d2e9-eab3-4661-94be-87df5a14ab7a" />
-
-   <img width="1408" height="891" alt="image" src="https://github.com/user-attachments/assets/7e448ce3-6398-4483-86c7-aa812486cf4f" />
-   <img width="1552" height="788" alt="image" src="https://github.com/user-attachments/assets/36c587e0-7b19-48e6-a819-76e4deaa01e0" />
 
 
 
