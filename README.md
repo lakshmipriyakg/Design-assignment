@@ -68,7 +68,7 @@ TKM_INTERNSHIP/
  * **Binary Coded Decimal (BCD) Counter**
    * Engineered a synchronous decade counter sequencing through valid BCD states (0000 to 1001).
    * Integrated reset logic and terminal-count boundary checks.
-### **Day2
+### **Day2:Flipflops,shift registers,Encoder**
 * **SR Flipflop**
 
 * **Encoder4_2**
