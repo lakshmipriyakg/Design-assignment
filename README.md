@@ -83,7 +83,7 @@ TKM_INTERNSHIP/
    * Constructed a finite state machine (FSM) to continuously monitor serial data streams for a targeted bit pattern.
    * Evaluated overlapping or non-overlapping state sequence transitions to guarantee reliable pattern recognition.
   
-### **Day4: Block memory generator*
+### **Day4: Block memory generator**
    * Engineered a synchronous single-port RAM architecture featuring parameterized byte-wide data paths and independent address tracking.
    * Integrated an asynchronous active-low reset loop to safely initialize the internal memory matrix configurations.
 
