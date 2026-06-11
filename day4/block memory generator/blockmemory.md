@@ -1,6 +1,6 @@
 ### ***SIMULATION RESULT***
 <img width="1579" height="843" alt="Screenshot 2026-06-11 200053" src="https://github.com/user-attachments/assets/842b49c3-fb08-495b-8000-db453703a4d8" />
-# Single-Port Block Memory Generator in Verilog
+
 
 This repository contains a Verilog HDL implementation of a synchronous, single-port **Block Memory Generator** (RAM) along with a comprehensive testbench to verify its read and write functionalities using Xilinx Vivado.
 
