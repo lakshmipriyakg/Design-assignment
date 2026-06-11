@@ -58,7 +58,7 @@ TKM_INTERNSHIP/
    * Engineered a synchronous decade counter sequencing through valid BCD states (0000 to 1001).
    * Integrated reset logic and terminal-count boundary checks.
    
-### **Day2:Flipflops,shift registers,Encoder**
+### **Day2: Flipflops,shift registers,Encoder**
 * **SR Flipflop**
    * Developed a basic latch-based storage element with set and reset functionalities.
    * Implemented characteristic equations to manage stable outputs and handle invalid state conditions.
@@ -75,7 +75,7 @@ TKM_INTERNSHIP/
    * Engineered a multi-functional sequential circuit capable of bidirectional shifting and parallel load configurations.
    * Implemented multiplexer-based mode selection lines to dynamically switch operational behavior.
 
-### **Day3:FIFO Usecase,Sequence detector**
+### **Day3: FIFO Usecase,Sequence detector**
 * **FIFO Usecase**
   * Designed and verified an 8 \times 8 synchronous FIFO buffer in Verilog to manage data transfer rate-matching between a high-speed data source module and a slower processing destination module.
 ​  * Integrated status tracking flags (full and empty) alongside internal pointer controls to secure data integrity and buffer pipeline data bursts without loss over varying execution cycles.
@@ -83,7 +83,7 @@ TKM_INTERNSHIP/
    * Constructed a finite state machine (FSM) to continuously monitor serial data streams for a targeted bit pattern.
    * Evaluated overlapping or non-overlapping state sequence transitions to guarantee reliable pattern recognition.
   
-### **Day4:Block memory generator*
+### **Day4: Block memory generator*
    * Engineered a synchronous single-port RAM architecture featuring parameterized byte-wide data paths and independent address tracking.
    * Integrated an asynchronous active-low reset loop to safely initialize the internal memory matrix configurations.
 
