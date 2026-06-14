@@ -1,7 +1,13 @@
 ### **SIMULATION RESULT**
 <img width="1896" height="684" alt="image" src="https://github.com/user-attachments/assets/4f85dee2-18ad-4176-85c0-8284b6c8ee7a" />
-### 🔍 Step 1: Initial Waveform Analysis & Problem Identification
+
+# FIFO Design & Testbench Rectification Log
+This document outlines the step-by-step process used to debug, analyze, and rectify a synchronous 8-depth FIFO implementation and its corresponding SystemVerilog testbench environment on EDA Playground.
+
+## 🔍 Step 1: Initial Waveform Analysis & Problem Identification
+
 Upon running the initial codebase simulation, critical functional mismatches were observed via EPWave:
+
 1. **Premature `full` Flag Assertion (Capacity Bug):**
    - **Observation:** The `full` signal shifted to high the exact moment the write pointer (`wr_ptr`) reached `7`.
    - **Flaw:** An 8-depth memory space (`[7:0] mem`) should support 8 full data elements before declaring a boundary block. The look-ahead logic equation (`wr_ptr + 1 == rd_ptr`) permanently blocked the 8th memory slot, wasting 12.5% of overall capacity.
@@ -12,7 +18,6 @@ Upon running the initial codebase simulation, critical functional mismatches wer
 3. **Testbench Deadlocks via Faulty Task Gates:**
    - **Observation:** No functional interleaved read/write verification could occur.
    - **Flaw:** The testbench stimulus execution checks were accidentally inverted (`if (f_if.full)` inside the write loop and `if (!f_if.empty)` evaluated backwards), creating simulation deadlocks that stopped stimulus flow.
-
 
 
 ## 🛠️ Step 2: Architecture & Hardware Rectification (`design.sv`)
@@ -39,10 +44,10 @@ The interface management driver actions were altered to establish valid driving 
 * **Race Condition Mitigation:** Introduced minor time offsets (`#1;`) past target clock boundaries (`posedge clk`) to ensure the simulator handles clock-to-output propagation loops cleanly without risking edge simulation race errors.
 
 
-
 ## 📈 Step 4: Verification Results (Expected Behavior)
 
 With the updated structural framework uploaded to EDA Playground:
 * **Complete Capacity Utilization:** The system accepts all 8 initial array write requests smoothly (`0xAA` through `0x22`).
 * **Precise Boundary Clamping:** The `full` indicator activates exactly on the 8th clock cycle, protecting active memory locations.
 * **Clean Emptying Transition:** Reading from the system executes continuously down to zero, resetting the `empty` indicator flag smoothly once the final data packet is evaluated.
+
