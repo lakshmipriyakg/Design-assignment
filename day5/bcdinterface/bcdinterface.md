@@ -17,10 +17,6 @@ $$\text{Binary Sum} = A + B + c_{in}$$
 #### Step 2: BCD Invalid Condition Detection
 A standard 4-bit binary adder can output hexadecimal values from `4'hA` to `4'hF` (decimal 10 to 15), or generate an intermediate hardware carry-out. Because a valid BCD digit cannot exceed 9 (`4'b1001`), an adjustment is mandatory if either condition is met.
 
-The circuit monitors the output of `rca1` using the following combinational boolean logic expression:
-
-$$\text{cout} = \text{rcal\_cout} \lor (\text{rcal\_sum}[3] \land \text{rcal\_sum}[2]) \lor (\text{rcal\_sum}[3] \land \text{rcal\_sum}[1])$$
-
 * `rcal_cout`: Triggers if the binary addition exceeds 15.
 * `rcal_sum[3] & rcal_sum[2]`: Triggers for decimal values 12 and 13 (`4'b1100`, `4'b1101`).
 * `rcal_sum[3] & rcal_sum[1]`: Triggers for decimal values 10 and 11 (`4'b1010`, `4'b1011`).
