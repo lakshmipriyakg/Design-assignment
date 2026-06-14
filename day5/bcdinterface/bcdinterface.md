@@ -8,25 +8,6 @@ A Binary Coded Decimal (BCD) adder takes two 4-bit BCD digits (each representing
 
 Because standard 4-bit binary addition can result in values up to 19 (e.g., $9 + 9 + 1$), a correction step is required whenever the binary sum exceeds the valid BCD limit of 9.
 
-### Step-by-Step Execution Process
-
-
-```
-[ Input A ]     [ Input B ]
-│               │
-└───►[ RCA 1 ]◄─┴─── [ Carry In (cin) ]
-│
-[ Binary Sum ] ───► [ Detection Logic ]
-│                    │
-│             (Sum > 9 or Cout?)
-│                    │
-▼                    ▼
-[ Input A ] ◄─────── [ Add +6 or +0 ]
-│
-└───►[ RCA 2 ]
-│
-[ BCD Sum ]
-
 
 #### Step 1: Initial Binary Addition (`rca1`)
 The two 4-bit BCD inputs (`A` and `B`) along with the input carry (`cin`) are fed into the first 4-bit Ripple Carry Adder (`rca1`). This module performs standard binary addition:
@@ -52,7 +33,7 @@ To skip the 6 invalid states of the hexadecimal system (`A` through `F`) and cyc
 * If **`cout == 1`**: The correction vector becomes `4'b0110` (decimal 6).
 * If **`cout == 0`**: The correction vector stays `4'b0000` (decimal 0).
 
-#### Step 4: Final BCD Adjust Adjustment (`rca2`)
+#### **Step 4: Final BCD Adjust Adjustment (`rca2`)**
 The temporary binary sum (`rcal_sum`) and the generated correction factor are sent into a second 4-bit Ripple Carry Adder (`rca2`). 
 
 * The output bits from this second adder represent the final, corrected **`Sum`** output.
