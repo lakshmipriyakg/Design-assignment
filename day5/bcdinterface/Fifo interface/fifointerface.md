@@ -1,10 +1,5 @@
 ### **SIMULATION RESULT**
 <img width="1896" height="684" alt="image" src="https://github.com/user-attachments/assets/4f85dee2-18ad-4176-85c0-8284b6c8ee7a" />
-
-# FIFO Design & Testbench Rectification Log
-
-This document outlines the step-by-step process used to debug, analyze, and rectify a synchronous 8-depth FIFO implementation and its corresponding SystemVerilog testbench environment on EDA Playground.
-
 ## 🔍 Step 1: Initial Waveform Analysis & Problem Identification
 
 Upon running the initial codebase simulation, critical functional mismatches were observed via EPWave:
