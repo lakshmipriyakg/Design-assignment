@@ -87,6 +87,8 @@ TKM_INTERNSHIP/
    * Engineered a synchronous single-port RAM architecture featuring parameterized byte-wide data paths and independent address tracking.
    * Integrated an asynchronous active-low reset loop to safely initialize the internal memory matrix configurations.
 
+### **Day5:FIFO interfacing,BCD interfacing**
+
 
 ## 🎯 Purpose & Repository Objectives
 The core objective of this codebase is to preserve a highly organized, step-by-step log of RTL (Register-Transfer Level) designs and physical verification procedures executed throughout the 15-day internship cycle. Every laboratory task is benchmarked using functional simulations to guarantee design accuracy and timing performance.
