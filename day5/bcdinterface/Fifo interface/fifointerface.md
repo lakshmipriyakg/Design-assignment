@@ -1,9 +1,7 @@
 ### **SIMULATION RESULT**
 <img width="1896" height="684" alt="image" src="https://github.com/user-attachments/assets/4f85dee2-18ad-4176-85c0-8284b6c8ee7a" />
-## 🔍 Step 1: Initial Waveform Analysis & Problem Identification
-
+### 🔍 Step 1: Initial Waveform Analysis & Problem Identification
 Upon running the initial codebase simulation, critical functional mismatches were observed via EPWave:
-
 1. **Premature `full` Flag Assertion (Capacity Bug):**
    - **Observation:** The `full` signal shifted to high the exact moment the write pointer (`wr_ptr`) reached `7`.
    - **Flaw:** An 8-depth memory space (`[7:0] mem`) should support 8 full data elements before declaring a boundary block. The look-ahead logic equation (`wr_ptr + 1 == rd_ptr`) permanently blocked the 8th memory slot, wasting 12.5% of overall capacity.
