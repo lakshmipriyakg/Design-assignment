@@ -88,6 +88,10 @@ TKM_INTERNSHIP/
    * Integrated an asynchronous active-low reset loop to safely initialize the internal memory matrix configurations.
 
 ### **Day5:FIFO interfacing,BCD interfacing**
+* **FIFO Interfacing**
+   *  Rectified status flag generation logic using a dynamic element counter to unlock 100% buffer capacity, resolving critical boundary alignment bugs between read/write pointer wraparounds.
+* **BCD Interfacing**
+   * Engineered and integrated binary-coded decimal communication logic to facilitate synchronized, multi-digit numeric data conversions and stable display-driver interactions.
 
 
 ## 🎯 Purpose & Repository Objectives
