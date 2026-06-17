@@ -1,2 +1,4 @@
 ### **SIMULATION RESULT**
 <img width="1434" height="217" alt="image" src="https://github.com/user-attachments/assets/e0d1aa95-f828-48be-976f-7cff616b70fd" /> 
+
+The Advanced Peripheral Bus (APB) is a low-cost, low-power bus protocol optimized for minimal power consumption and reduced interface complexity, making it ideal for connecting unpipelined, low-bandwidth peripherals to a system SoC. As documented in the day7/APB repository subfolder,the protocol's implementation includes standard verification components such as a generator.sv, driver.sv, monitor.sv, and scoreboard.sv written in SystemVerilog. Key control signals like PCLK, PRESETn, PSEL, PENABLE, PWRITE, and data buses like PADDR, PWDATA, and PRDATA manage basic read and write transactions. The proper phase sequence and timing of these signals—progressing through IDLE, SETUP, and ACCESS states—can be verified via waveform analysis, as captured in the simulation results shown in file
