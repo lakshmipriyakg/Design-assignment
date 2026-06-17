@@ -1,42 +1,26 @@
 
-class environment;
-    generator  gen;
-    driver     driv;
-    monitor    mon;
-    scoreboard scb;
-    
-    mailbox gen2driv;
+class scoreboard;
     mailbox mon2scb;
-    virtual apb_if vif;
+    bit [31:0] ref_mem [256]; // Reference memory
 
-    function new(virtual apb_if vif);
-        this.vif = vif;
-        gen2driv = new();
-        mon2scb  = new();
-        gen  = new(gen2driv);
-        driv = new(vif, gen2driv);
-        mon  = new(vif, mon2scb);
-        scb  = new(mon2scb);
+    function new(mailbox mon2scb);
+        this.mon2scb = mon2scb;
     endfunction
 
-    task pre_test();
-        vif.psel <= 0;
-        vif.penable <= 0;
-    endtask
+    task main();
+        forever begin
+            transaction trans;
+            mon2scb.get(trans);
 
-    task test();
-        fork
-            gen.main();
-            driv.main();
-            mon.main();
-            scb.main();
-        join_any
-    endtask
-
-    task run();
-        pre_test();
-        test();
-        #100; // Let final transactions flush
-        $finish;
+            if(trans.pwrite) begin
+                ref_mem[trans.paddr] = trans.pwdata;
+                $display("[Scoreboard] Wrote %0h to %0h", trans.pwdata, trans.paddr);
+            end else begin
+                if(ref_mem[trans.paddr] == trans.prdata)
+                    $display("[Scoreboard] PASS: Read %0h from %0h", trans.prdata, trans.paddr);
+                else
+                    $error("[Scoreboard] FAIL: Addr: %0h Expected: %0h Actual: %0h", trans.paddr, ref_mem[trans.paddr], trans.prdata);
+            end
+        end
     endtask
 endclass
