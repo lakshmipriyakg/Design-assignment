@@ -96,12 +96,10 @@ TKM_INTERNSHIP/
    * Developed a randomized SystemVerilog transaction class encapsulating data packets,control signals,and constraints to comprehensively exercise the FIFO's write and read boundaries.
 
 ### **Day7:APB**
-    **APB Protocol Design**
+   * **APB Protocol Design**
         * Implemented a standard APB master/slave design interfacing key control signals (`PSEL`, `PENABLE`, `PWRITE`) for stable register-file operations.
-    **Verification Environment**
+    * **Verification Environment**
         * Engineered a modular SystemVerilog testbench structure to capture, monitor, and score read/write transactions against protocol specifications.
-
-
 ## 🎯 Purpose & Repository Objectives
 The core objective of this codebase is to preserve a highly organized, step-by-step log of RTL (Register-Transfer Level) designs and physical verification procedures executed throughout the 15-day internship cycle. Every laboratory task is benchmarked using functional simulations to guarantee design accuracy and timing performance.
 ```
