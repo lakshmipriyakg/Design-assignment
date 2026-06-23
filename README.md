@@ -96,9 +96,9 @@ TKM_INTERNSHIP/
    * Developed a randomized SystemVerilog transaction class encapsulating data packets,control signals,and constraints to comprehensively exercise the FIFO's write and read boundaries.
 
 ### **Day7:APB**
-    * **APB Protocol Design**
+    **APB Protocol Design**
         * Implemented a standard APB master/slave design interfacing key control signals (`PSEL`, `PENABLE`, `PWRITE`) for stable register-file operations.
-    * **Verification Environment**
+    **Verification Environment**
         * Engineered a modular SystemVerilog testbench structure to capture, monitor, and score read/write transactions against protocol specifications.
 
 
