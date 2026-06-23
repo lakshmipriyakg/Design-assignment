@@ -93,9 +93,13 @@ TKM_INTERNSHIP/
 * **BCD Interfacing**
    * Engineered and integrated binary-coded decimal communication logic to facilitate synchronized, multi-digit numeric data conversions and stable display-driver interactions.
 ### **Day6:FIFO transaction class**
-
+   * Developed a randomized SystemVerilog transaction class encapsulating data packets,control signals,and constraints to comprehensively exercise the FIFO's write and read boundaries.
 
 ### **Day7:APB**
+    * **APB Protocol Design**
+        * Implemented a standard APB master/slave design interfacing key control signals (`PSEL`, `PENABLE`, `PWRITE`) for stable register-file operations.
+    * **Verification Environment**
+        * Engineered a modular SystemVerilog testbench structure to capture, monitor, and score read/write transactions against protocol specifications.
 
 
 ## 🎯 Purpose & Repository Objectives
