@@ -53,7 +53,7 @@ TKM_INTERNSHIP/
  * **4-Bit Ripple Carry Adder (RCA)**
    * Implemented a structured multi-bit adder utilizing cascaded full-adder blocks.
    * Verified structural propagation delays and data-path synthesis.
-   * 
+     
  * **Binary Coded Decimal (BCD) Counter**
    * Engineered a synchronous decade counter sequencing through valid BCD states (0000 to 1001).
    * Integrated reset logic and terminal-count boundary checks.
@@ -98,7 +98,7 @@ TKM_INTERNSHIP/
 ### **Day7:APB**
    * **APB Protocol Design**
         * Implemented a standard APB master/slave design interfacing key control signals (`PSEL`, `PENABLE`, `PWRITE`) for stable register-file operations.
-    * **Verification Environment**
+   * **Verification Environment**
         * Engineered a modular SystemVerilog testbench structure to capture, monitor, and score read/write transactions against protocol specifications.
 ## 🎯 Purpose & Repository Objectives
 The core objective of this codebase is to preserve a highly organized, step-by-step log of RTL (Register-Transfer Level) designs and physical verification procedures executed throughout the 15-day internship cycle. Every laboratory task is benchmarked using functional simulations to guarantee design accuracy and timing performance.
