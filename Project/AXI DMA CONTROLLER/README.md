@@ -11,11 +11,11 @@
 ## Team Members
 
 * Prayag V T (Team Lead)
-* Lasim
-* Chinchina
+* Muhamad Lasim
+* Chinchina Anil
 * Shafin V
-* Isac
-* Lakshmi
+* Isac M Reji
+* Lakshmipriya K G
 
 ---
 
